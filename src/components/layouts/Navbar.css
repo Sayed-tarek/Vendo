@@ -1,0 +1,552 @@
+/* ========================================================
+   Vendo Navigation Bar & Mobile Sidebar Styles
+   ======================================================== */
+
+.vendo-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--vendo-border);
+  transition: box-shadow var(--vendo-transition), background-color var(--vendo-transition);
+}
+
+.vendo-header.scrolled {
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.08);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  height: var(--vendo-header-height);
+}
+
+/* Brand Logo */
+.brand-link {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.brand-badge-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--vendo-radius-md);
+  background: var(--vendo-primary-gradient);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1.25rem;
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.28);
+  transition: transform var(--vendo-transition);
+}
+
+.brand-link:hover .brand-badge-icon {
+  transform: scale(1.05);
+}
+
+.brand-text-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-name {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--vendo-dark);
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+}
+
+.brand-sub {
+  font-size: 0.68rem;
+  color: var(--vendo-primary);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* Desktop Main Navigation Links with Icons */
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.nav-link-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 0.95rem;
+  border-radius: var(--vendo-radius-md);
+  font-size: 0.94rem;
+  font-weight: 600;
+  color: var(--vendo-gray-body);
+  text-decoration: none;
+  transition: all var(--vendo-transition);
+  position: relative;
+}
+
+.nav-link-item:hover {
+  color: var(--vendo-primary);
+  background-color: var(--vendo-primary-light);
+}
+
+.nav-link-item.active {
+  color: var(--vendo-primary);
+  background-color: var(--vendo-primary-light);
+  font-weight: 700;
+}
+
+.nav-link-icon {
+  font-size: 1.15rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-badge-pill {
+  font-size: 0.72rem;
+  font-weight: 700;
+  background-color: var(--vendo-primary);
+  color: #ffffff;
+  padding: 0.1rem 0.45rem;
+  border-radius: var(--vendo-radius-full);
+  margin-inline-start: 0.25rem;
+  line-height: 1.2;
+}
+
+/* Header Action Controls */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* Language Switcher */
+.btn-lang-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.42rem 0.8rem;
+  border-radius: var(--vendo-radius-full);
+  border: 1px solid var(--vendo-border);
+  background-color: var(--vendo-bg-alt);
+  color: var(--vendo-dark);
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--vendo-transition);
+  font-family: inherit;
+}
+
+.btn-lang-switch:hover {
+  background-color: var(--vendo-primary-light);
+  border-color: var(--vendo-primary-border);
+  color: var(--vendo-primary);
+}
+
+/* Dashboard Link for Admin */
+.btn-dashboard-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 0.9rem;
+  background-color: #0f172a;
+  color: #ffffff;
+  border-radius: var(--vendo-radius-md);
+  font-size: 0.86rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all var(--vendo-transition);
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.18);
+}
+
+.btn-dashboard-link:hover {
+  background-color: var(--vendo-primary);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+/* Profile Pill (when logged in) */
+.user-profile-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.35rem 0.85rem;
+  background-color: var(--vendo-bg-alt);
+  border: 1px solid var(--vendo-border);
+  border-radius: var(--vendo-radius-full);
+  text-decoration: none;
+  color: var(--vendo-dark);
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all var(--vendo-transition);
+}
+
+.user-profile-pill:hover {
+  border-color: var(--vendo-primary);
+  background-color: var(--vendo-primary-light);
+  color: var(--vendo-primary);
+}
+
+.user-avatar-mini {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--vendo-primary-border);
+}
+
+/* Login/Register CTA (when guest) */
+.btn-nav-login {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.15rem;
+  border-radius: var(--vendo-radius-md);
+  background: var(--vendo-primary-gradient);
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.28);
+  transition: all var(--vendo-transition);
+  border: none;
+}
+
+.btn-nav-login:hover {
+  opacity: 0.94;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.38);
+}
+
+/* Mobile Toggle */
+.mobile-menu-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: var(--vendo-bg-alt);
+  border: 1px solid var(--vendo-border);
+  border-radius: var(--vendo-radius-md);
+  color: var(--vendo-dark);
+  font-size: 1.35rem;
+  cursor: pointer;
+  transition: all var(--vendo-transition);
+}
+
+.mobile-menu-toggle:hover {
+  background-color: var(--vendo-primary-light);
+  color: var(--vendo-primary);
+}
+
+/* Desktop Only Actions in Header (Profile, Lang, Admin) */
+.desktop-only-action {
+  display: inline-flex;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .desktop-only-action {
+    display: none !important;
+  }
+}
+
+/* Mobile Drawer (Sidebar) Overlay */
+.mobile-drawer-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 99998;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--vendo-transition-smooth);
+}
+
+.mobile-drawer-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Mobile Drawer Sidebar (Only on mobile/tablet <= 900px) */
+@media (max-width: 900px) {
+  .mobile-drawer {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 85%;
+    max-width: 320px;
+    height: 100vh;
+    background-color: #ffffff;
+    z-index: 99999;
+    box-shadow: 0 0 35px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    padding: 1.25rem;
+    transition: transform var(--vendo-transition-smooth);
+    overflow-y: auto;
+    box-sizing: border-box;
+  }
+
+  [dir="rtl"] .mobile-drawer {
+    right: 0;
+    left: auto;
+    transform: translateX(100%);
+  }
+
+  [dir="ltr"] .mobile-drawer {
+    left: 0;
+    right: auto;
+    transform: translateX(-100%);
+  }
+
+  .mobile-drawer.open {
+    transform: translateX(0) !important;
+  }
+}
+
+/* Strictly hide Mobile Drawer, Overlay, and Mobile Toggle on large desktop screens */
+@media (min-width: 901px) {
+  .mobile-drawer,
+  .mobile-drawer-overlay,
+  .mobile-menu-toggle {
+    display: none !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    opacity: 0 !important;
+    transform: none !important;
+  }
+}
+
+.drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--vendo-border);
+}
+
+.drawer-close-btn {
+  background: var(--vendo-bg-alt);
+  border: 1px solid var(--vendo-border);
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  font-size: 1.25rem;
+  color: var(--vendo-gray-muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--vendo-transition-fast);
+}
+
+.drawer-close-btn:hover {
+  background-color: #fee2e2;
+  color: #ef4444;
+  border-color: #fecaca;
+}
+
+/* Drawer User Card */
+.drawer-user-card {
+  display: flex;
+  align-items: center;
+  padding: 0.85rem 1rem;
+  background-color: var(--vendo-bg-alt);
+  border: 1px solid var(--vendo-border);
+  border-radius: var(--vendo-radius-lg);
+  margin-top: 1rem;
+  text-decoration: none;
+  color: var(--vendo-dark);
+  transition: all var(--vendo-transition-fast);
+}
+
+.drawer-user-card:hover {
+  border-color: var(--vendo-primary);
+  background-color: var(--vendo-primary-light);
+}
+
+.drawer-user-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.drawer-user-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--vendo-primary);
+}
+
+.drawer-user-avatar-placeholder {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background-color: var(--vendo-primary-light);
+  color: var(--vendo-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+  border: 2px solid var(--vendo-primary-border);
+}
+
+.drawer-user-details {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.drawer-user-name {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--vendo-dark);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.drawer-user-role {
+  font-size: 0.75rem;
+  color: var(--vendo-gray-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Drawer Guest Actions */
+.drawer-guest-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.btn-drawer-login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  background: var(--vendo-primary-gradient);
+  color: #ffffff;
+  border-radius: var(--vendo-radius-md);
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 0.925rem;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.25);
+}
+
+.btn-drawer-register {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  background-color: var(--vendo-bg-alt);
+  border: 1px solid var(--vendo-border);
+  color: var(--vendo-dark);
+  border-radius: var(--vendo-radius-md);
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.925rem;
+}
+
+.drawer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 1.25rem 0;
+}
+
+.drawer-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.85rem 1rem;
+  border-radius: var(--vendo-radius-md);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--vendo-gray-body);
+  text-decoration: none;
+  background-color: var(--vendo-bg-alt);
+  border: 1px solid var(--vendo-border-subtle);
+  transition: all var(--vendo-transition);
+}
+
+.drawer-nav-link:hover,
+.drawer-nav-link.active {
+  background-color: var(--vendo-primary-light);
+  color: var(--vendo-primary);
+  border-color: var(--vendo-primary-border);
+}
+
+.drawer-nav-icon {
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.drawer-footer {
+  margin-top: auto;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--vendo-border);
+}
+
+.drawer-lang-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.75rem;
+  border-radius: var(--vendo-radius-md);
+  border: 1px solid var(--vendo-border);
+  background-color: var(--vendo-bg-alt);
+  color: var(--vendo-dark);
+  font-size: 0.925rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--vendo-transition);
+}
+
+.drawer-lang-btn:hover {
+  background-color: var(--vendo-primary-light);
+  border-color: var(--vendo-primary);
+  color: var(--vendo-primary);
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 900px) {
+  .header-nav {
+    display: none;
+  }
+
+  .mobile-menu-toggle {
+    display: inline-flex;
+  }
+}
+
+@media (max-width: 480px) {
+  .brand-sub {
+    display: none;
+  }
+}

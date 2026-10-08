@@ -1,0 +1,256 @@
+:root {
+  /* Brand Colors */
+  --vendo-primary: #2563eb;
+  --vendo-primary-hover: #1d4ed8;
+  --vendo-primary-light: #eff6ff;
+  --vendo-primary-border: #bfdbfe;
+  --vendo-primary-gradient: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  --vendo-primary-glow: rgba(37, 99, 235, 0.15);
+
+  /* Neutrals & Dark Tones */
+  --vendo-dark: #0f172a;
+  --vendo-dark-secondary: #1e293b;
+  --vendo-gray-body: #334155;
+  --vendo-gray-muted: #64748b;
+  --vendo-gray-subtle: #94a3b8;
+  --vendo-gray-light: #f1f5f9;
+  --vendo-bg-main: #ffffff;
+  --vendo-bg-alt: #f8fafc;
+  --vendo-bg-elevated: #ffffff;
+
+  /* Borders */
+  --vendo-border: #e2e8f0;
+  --vendo-border-subtle: #f1f5f9;
+  --vendo-border-hover: #cbd5e1;
+
+  /* Status & Accent */
+  --vendo-success: #10b981;
+  --vendo-success-light: #ecfdf5;
+  --vendo-success-text: #047857;
+  --vendo-warning: #f59e0b;
+  --vendo-warning-light: #fffbeb;
+
+  /* Typography */
+  --vendo-font-ar: "Cairo", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --vendo-font-en: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --vendo-font-family: var(--vendo-font-ar);
+
+  /* Elevation Shadows */
+  --vendo-shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --vendo-shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.06), 0 1px 2px -1px rgba(0, 0, 0, 0.04);
+  --vendo-shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.07), 0 2px 4px -2px rgba(15, 23, 42, 0.05);
+  --vendo-shadow-lg: 0 10px 15px -3px rgba(15, 23, 42, 0.08), 0 4px 6px -4px rgba(15, 23, 42, 0.03);
+  --vendo-shadow-xl: 0 20px 25px -5px rgba(15, 23, 42, 0.09), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+  --vendo-shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+
+  /* Border Radii */
+  --vendo-radius-sm: 6px;
+  --vendo-radius-md: 10px;
+  --vendo-radius-lg: 16px;
+  --vendo-radius-xl: 24px;
+  --vendo-radius-full: 9999px;
+
+  /* Transitions */
+  --vendo-transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --vendo-transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --vendo-transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Layout Max Width */
+  --vendo-max-width: 1240px;
+  --vendo-header-height: 72px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+[dir="ltr"] {
+  --vendo-font-family: var(--vendo-font-en);
+  direction: ltr;
+  text-align: left;
+}
+
+[dir="rtl"] {
+  --vendo-font-family: var(--vendo-font-ar);
+  direction: rtl;
+  text-align: right;
+}
+
+body {
+  font-family: var(--vendo-font-family);
+  background-color: var(--vendo-bg-alt);
+  color: var(--vendo-dark);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ====================================================
+   GLOBAL RTL DIRECTION & TEXT ALIGNMENT OVERRIDES
+   ==================================================== */
+html[dir="rtl"],
+body[dir="rtl"],
+html.rtl,
+body.rtl,
+[dir="rtl"] {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+html[dir="rtl"] body,
+body[dir="rtl"] {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+/* Headings and Paragraphs in RTL */
+[dir="rtl"] h1,
+[dir="rtl"] h2,
+[dir="rtl"] h3,
+[dir="rtl"] h4,
+[dir="rtl"] h5,
+[dir="rtl"] h6,
+[dir="rtl"] p,
+[dir="rtl"] span:not(.badge-products-count):not(.dash-badge-status):not(.sidebar-brand-badge) {
+  text-align: right;
+}
+
+/* Form Elements in RTL */
+[dir="rtl"] label,
+[dir="rtl"] .cat-form-label,
+[dir="rtl"] .form-label {
+  text-align: right !important;
+  justify-content: flex-start;
+  display: flex;
+}
+
+[dir="rtl"] input:not([dir="ltr"]),
+[dir="rtl"] textarea:not([dir="ltr"]),
+[dir="rtl"] select:not([dir="ltr"]),
+[dir="rtl"] .cat-form-input:not([dir="ltr"]) {
+  text-align: right !important;
+  direction: rtl !important;
+}
+
+[dir="rtl"] input:not([dir="ltr"])::placeholder,
+[dir="rtl"] textarea:not([dir="ltr"])::placeholder {
+  text-align: right !important;
+  direction: rtl !important;
+}
+
+/* Tables in RTL */
+[dir="rtl"] table {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+[dir="rtl"] table th:not([style*="text-align: center"]):not([style*="text-align:center"]),
+[dir="rtl"] table td:not([style*="text-align: center"]):not([style*="text-align:center"]):not([dir="ltr"]) {
+  text-align: right !important;
+}
+
+[dir="rtl"] .dash-table th:not([style*="text-align: center"]),
+[dir="rtl"] .dash-table td:not([style*="text-align: center"]):not([dir="ltr"]) {
+  text-align: right !important;
+}
+
+/* Dashboard & Cards in RTL */
+[dir="rtl"] .categories-header-info,
+[dir="rtl"] .create-card-title,
+[dir="rtl"] .list-card-title,
+[dir="rtl"] .list-card-header,
+[dir="rtl"] .dashboard-topbar,
+[dir="rtl"] .topbar-title,
+[dir="rtl"] .sidebar-brand-title,
+[dir="rtl"] .sidebar-user-info,
+[dir="rtl"] .sidebar-nav-link {
+  text-align: right;
+}
+
+/* ====================================================
+   GLOBAL LTR DIRECTION & TEXT ALIGNMENT
+   ==================================================== */
+html[dir="ltr"],
+body[dir="ltr"],
+html.ltr,
+body.ltr,
+[dir="ltr"] {
+  direction: ltr;
+  text-align: left;
+}
+
+[dir="ltr"] h1,
+[dir="ltr"] h2,
+[dir="ltr"] h3,
+[dir="ltr"] h4,
+[dir="ltr"] h5,
+[dir="ltr"] h6,
+[dir="ltr"] p {
+  text-align: left;
+}
+
+[dir="ltr"] label,
+[dir="ltr"] .cat-form-label,
+[dir="ltr"] .form-label {
+  text-align: left;
+  justify-content: flex-start;
+  display: flex;
+}
+
+[dir="ltr"] input,
+[dir="ltr"] textarea,
+[dir="ltr"] select,
+[dir="ltr"] .cat-form-input {
+  text-align: left;
+  direction: ltr;
+}
+
+[dir="ltr"] input::placeholder,
+[dir="ltr"] textarea::placeholder {
+  text-align: left;
+  direction: ltr;
+}
+
+[dir="ltr"] table th:not([style*="text-align: center"]),
+[dir="ltr"] table td:not([style*="text-align: center"]) {
+  text-align: left;
+}
+
+/* Base Container Utility */
+.vendo-container {
+  width: 100%;
+  max-width: var(--vendo-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .vendo-container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .vendo-container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Focus outline utility */
+:focus-visible {
+  outline: 2px solid var(--vendo-primary);
+  outline-offset: 2px;
+}
+
